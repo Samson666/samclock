@@ -30,9 +30,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         dialog.h dialog.cpp dialog.ui
         clockhand.h clockhand.cpp
         clockdial.h clockdial.cpp
-        flatpak/org.flatpak.Hello.yml
-
-
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET SamClock APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
