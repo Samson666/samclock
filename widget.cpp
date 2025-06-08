@@ -29,7 +29,7 @@ Widget::Widget(QWidget *parent)
     //Remove window Frame
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     using namespace std::chrono_literals;
-    startTimer(1s);
+    startTimer(10ms);
 }
 
 void Widget::ShowContextMenu(const QPoint& pos)
@@ -68,6 +68,7 @@ void Widget::closeEvent(QCloseEvent *event)
     settings.setValue("hasFiveMinuteMarks", dial.hasFiveMinuteMarks);
     settings.setValue("hasMinuteMarks", dial.hasMinuteMarks);
     settings.setValue("hasPoints", dial.hasPoints);
+    settings.setValue("hasSweepingSecondHand", hasSweepingSecondHand);
 }
 
 void Widget::drawDial(QPainter *painter)

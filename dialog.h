@@ -25,6 +25,8 @@ private slots:
     void on_checkHasFiveMinuteMarks_checkStateChanged(const Qt::CheckState &arg1);
     void on_checkHasPoints_checkStateChanged(const Qt::CheckState &arg1);
 
+    void on_checkHasSweepingSecondHand_checkStateChanged(const Qt::CheckState &arg1);
+
 private:
     Ui::Dialog *ui;
     Widget *cParent;

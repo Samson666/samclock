@@ -19,7 +19,7 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
     switch(hType)
     {
     case hTypeSec:
-        handAngle = qDegreesToRadians((time.second() * 6)-90);
+        handAngle = qDegreesToRadians(((time.second()+ (chParent->hasSweepingSecondHand ? time.msec()/1000.0 : 0.0)) * 6.0)-90.0);
         radius = 10;
         break;
     case hTypeMin:
@@ -27,7 +27,7 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
         radius = 30;
         break;
     case hTypeHr:
-        handAngle = qDegreesToRadians(((time.hour() - (time.hour() > 12 ? - 12 : + 0)) * 30)-90);
+        handAngle = qDegreesToRadians((((time.hour() - (time.hour() > 12.0 ? - 12.0 : + 0))+(time.minute()/60.0)) * 30.0)-90.0);
         radius = 50;
         break;
     default:

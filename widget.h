@@ -30,6 +30,7 @@ public:
     qreal clockMargin;
     bool hasSecHand = true;
     bool hasDial = true;
+    bool hasSweepingSecondHand = false;
     qreal wWidth;
     ClockDial dial;
 private slots:
