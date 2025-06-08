@@ -27,6 +27,8 @@ private slots:
 
     void on_checkHasSweepingSecondHand_checkStateChanged(const Qt::CheckState &arg1);
 
+    void on_checkHasRoundedHandEdges_checkStateChanged(const Qt::CheckState &arg1);
+
 private:
     Ui::Dialog *ui;
     Widget *cParent;

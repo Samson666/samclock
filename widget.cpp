@@ -69,6 +69,7 @@ void Widget::closeEvent(QCloseEvent *event)
     settings.setValue("hasMinuteMarks", dial.hasMinuteMarks);
     settings.setValue("hasPoints", dial.hasPoints);
     settings.setValue("hasSweepingSecondHand", hasSweepingSecondHand);
+    settings.setValue("hasRoundedHandEdges", hasRoundedHandEdges);
 }
 
 void Widget::drawDial(QPainter *painter)

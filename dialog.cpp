@@ -17,6 +17,7 @@ Dialog::Dialog(QWidget *parent)
     ui->checkHasFiveMinuteMarks->setCheckState(cParent->dial.hasFiveMinuteMarks ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
     ui->checkHasPoints->setCheckState(cParent->dial.hasPoints ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
     ui->checkHasSweepingSecondHand->setCheckState(cParent->hasSweepingSecondHand ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+    ui->checkHasRoundedHandEdges->setCheckState(cParent->hasRoundedHandEdges ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 }
 
 Dialog::~Dialog()
@@ -79,6 +80,13 @@ void Dialog::on_checkHasPoints_checkStateChanged(const Qt::CheckState &arg1)
 void Dialog::on_checkHasSweepingSecondHand_checkStateChanged(const Qt::CheckState &arg1)
 {
     cParent->hasSweepingSecondHand = arg1 == Qt::CheckState::Checked ? true : false;
+    cParent->update();
+}
+
+
+void Dialog::on_checkHasRoundedHandEdges_checkStateChanged(const Qt::CheckState &arg1)
+{
+    cParent->hasRoundedHandEdges = arg1 == Qt::CheckState::Checked ? true : false;
     cParent->update();
 }
 

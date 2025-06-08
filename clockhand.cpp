@@ -42,12 +42,11 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
     QPointF destPoint_inner(x1,y2);
     destPoint_1 = destPoint_inner;
     destPoint_2 = destPoint_outer;
-
 }
 
 void ClockHand::draw(QPainter *painter)
 {
-    painter->setPen(QPen(Qt::white, 3));
+    painter->setPen(QPen(Qt::white, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap));
     QPointF outer, inner;
     getHandCoords(inner, outer);
     painter->drawLine(chParent->clockCenter, inner);

@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     w.dial.hasMinuteMarks = settings.value("hasMinuteMarks", true).toBool();
     w.dial.hasPoints = settings.value("hasPoints", false).toBool();
     w.hasSweepingSecondHand = settings.value("hasSweepingSecondHand", false).toBool();
+    w.hasRoundedHandEdges = settings.value("hasRoundedHandEdges", false).toBool();
     w.show();
     return a.exec();
 }

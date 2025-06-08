@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>538</width>
-    <height>229</height>
+    <height>278</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -123,6 +123,16 @@
      </property>
      <property name="text">
       <string>Sweeping Second Hand</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkHasRoundedHandEdges">
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>Rounded Hand Edges</string>
      </property>
     </widget>
    </item>
