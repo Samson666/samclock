@@ -10,10 +10,27 @@ class Widget;
 class ClockHand
 {
 public:
-    ClockHand(Widget *parent = nullptr, const int type = 1);
+
+    enum handType
+    {
+        sec = 1,
+        min = 2,
+        hr = 3
+    };
+
+    enum handSize
+    {
+        sizeSec = 90,
+        sizeMin = 70,
+        sizeHr = 50
+    };
+
+
+    ClockHand(Widget *parent = nullptr, const handType type = sec);
     //Draw the clockhand
 
     //Calculate the coordinates of the endpoint of the clockpoint
+
 
     //Type of hands
     constexpr static int hTypeSec = 1;

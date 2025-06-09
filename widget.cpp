@@ -18,9 +18,9 @@ Widget::Widget(QWidget *parent)
     setFixedSize(this->size());
     setAttribute(Qt::WA_TranslucentBackground);
     hasSecHand = true;
-    secHand = ClockHand(this, ClockHand::hTypeSec);
-    minHand = ClockHand(this, ClockHand::hTypeMin);
-    hrHand = ClockHand(this, ClockHand::hTypeHr);
+    secHand = ClockHand(this, ClockHand::sec);
+    minHand = ClockHand(this, ClockHand::min);
+    hrHand = ClockHand(this, ClockHand::hr);
     dial = ClockDial(this);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -29,7 +29,7 @@ Widget::Widget(QWidget *parent)
     //Remove window Frame
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     using namespace std::chrono_literals;
-    startTimer(10ms);
+    startTimer(50ms);
 }
 
 void Widget::ShowContextMenu(const QPoint& pos)

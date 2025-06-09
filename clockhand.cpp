@@ -3,7 +3,7 @@
 #include "clockhand.h"
 #include "widget.h"
 
-ClockHand::ClockHand(Widget *parent, int type)
+ClockHand::ClockHand(Widget *parent, const handType type)
 {
     hType = type;
     chParent = parent;
@@ -18,15 +18,15 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
     QTime time = date.time();
     switch(hType)
     {
-    case hTypeSec:
+    case sec:
         handAngle = qDegreesToRadians(((time.second()+ (chParent->hasSweepingSecondHand ? time.msec()/1000.0 : 0.0)) * 6.0)-90.0);
         radius = 10;
         break;
-    case hTypeMin:
+    case min:
         handAngle = qDegreesToRadians((time.minute() * 6)-90);
         radius = 30;
         break;
-    case hTypeHr:
+    case hr:
         handAngle = qDegreesToRadians((((time.hour() - (time.hour() > 12.0 ? - 12.0 : + 0))+(time.minute()/60.0)) * 30.0)-90.0);
         radius = 50;
         break;
