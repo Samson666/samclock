@@ -8,6 +8,7 @@
 #include "widget.h"
 #include "clockhand.h"
 #include "dialog.h"
+#include <QtOpenGLWidgets/QOpenGLWidget>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -29,7 +30,7 @@ Widget::Widget(QWidget *parent)
     //Remove window Frame
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     using namespace std::chrono_literals;
-    startTimer(50ms);
+    startTimer(200ms);
 }
 
 void Widget::ShowContextMenu(const QPoint& pos)
