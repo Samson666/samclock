@@ -29,6 +29,7 @@ Widget::Widget(QWidget *parent)
 
     //Remove window Frame
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool);
+    //setAttribute(Qt::WA_DeleteOnClose);
     using namespace std::chrono_literals;
     startTimer(200ms);
 }
@@ -63,6 +64,7 @@ void Widget::closeEvent(QCloseEvent *event)
 {
     //Write conf before closing window
     QSettings settings("JJSoft","SamClock");
+    settings.setValue("pos", pos());
     settings.setValue("size", size());
     settings.setValue("hasSecHand", hasSecHand);
     settings.setValue("hasCircle", dial.hasCircle);
@@ -71,7 +73,7 @@ void Widget::closeEvent(QCloseEvent *event)
     settings.setValue("hasPoints", dial.hasPoints);
     settings.setValue("hasSweepingSecondHand", hasSweepingSecondHand);
     settings.setValue("hasRoundedHandEdges", hasRoundedHandEdges);
-}
+ }
 
 void Widget::drawDial(QPainter *painter)
 {
@@ -96,10 +98,12 @@ void Widget::paintEvent(QPaintEvent *event)
     //Draw Dial
     if(hasDial)
         dial.draw(&painter);
+    hrHand.draw(&painter);
+    minHand.draw(&painter);
     if(hasSecHand)
         secHand.draw(&painter);
-    minHand.draw(&painter);
-    hrHand.draw(&painter);
+
+
 }
 
 void Widget::keyPressEvent(QKeyEvent *event)

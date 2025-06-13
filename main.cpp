@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
     //Get Conf
+    w.move(settings.value("pos", QPoint(100,100)).value<QPoint>());
     w.setFixedSize(settings.value("size", QSize(400,400)).value<QSize>());
     w.hasSecHand = settings.value("hasSecHand", true).toBool();
     w.dial.hasCircle = settings.value("hasCircle", true).toBool();
