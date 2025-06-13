@@ -2,6 +2,7 @@
 #include <QObject>
 #include "clockhand.h"
 #include "widget.h"
+#include <QGradient>
 
 ClockHand::ClockHand(Widget *parent, const handType type)
 {
@@ -46,7 +47,12 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
 
 void ClockHand::draw(QPainter *painter)
 {
-    painter->setPen(QPen(Qt::white, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap));
+    //painter->setPen(QPen(Qt::gray, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap));
+    QPen p(Qt::gray, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap);
+    QGradient g(QGradient::Preset::MarbleWall);
+    QBrush b(g);
+    p.setBrush(b);
+    painter->setPen(p);
     QPointF outer, inner;
     getHandCoords(inner, outer);
     painter->drawLine(chParent->clockCenter, inner);

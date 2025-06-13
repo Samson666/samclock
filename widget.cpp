@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowContextMenu(const QPoint&)));
 
     //Remove window Frame
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool);
     using namespace std::chrono_literals;
     startTimer(200ms);
 }
@@ -88,7 +88,7 @@ void Widget::paintEvent(QPaintEvent *event)
     clockRadius = wWidth/2 - clockMargin;
 
     QPainter painter(this);
-    QPen pen(Qt::white);
+    QPen pen(Qt::gray);
     pen.setWidth(3);
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setPen(pen);

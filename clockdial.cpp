@@ -43,7 +43,7 @@ void ClockDial::draw(QPainter *painter)
                     lineThickness = lineMinuteThickness;
                 }
                 getMarksStartEnd(start, end, lineLength, angle);
-                painter->setPen(QPen(QColor(255,255,255,255), lineThickness));
+                painter->setPen(QPen(Qt::gray, lineThickness));
                 //painter->setBrush(QBrush(QColor(255,255,255,255), Qt::SolidPattern));
                 hasPoints==true ? painter->drawEllipse(start, pointsFiveMinuteRadius, pointsFiveMinuteRadius) : painter->drawLine(start, end);
                 painter->setBrush(Qt::NoBrush);
@@ -66,7 +66,7 @@ void ClockDial::draw(QPainter *painter)
 
     if(hasCircle)
     {
-        painter->setPen(QPen(Qt::white, circleThickness));
+        painter->setPen(QPen(Qt::gray, circleThickness));
         painter->drawEllipse(cdParent->clockCenter, cdParent->clockRadius, cdParent->clockRadius);
     }
 }
