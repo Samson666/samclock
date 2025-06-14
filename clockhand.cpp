@@ -49,12 +49,12 @@ void ClockHand::draw(QPainter *painter)
 {
     //painter->setPen(QPen(Qt::gray, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap));
     QPen p(Qt::gray, 10,Qt::SolidLine,chParent->hasRoundedHandEdges ? Qt::RoundCap : Qt::SquareCap);
-    QGradient g(QGradient::Preset::MarbleWall);
+    QGradient g(QGradient::Preset::AquaSplash);
     QBrush b(g);
     p.setBrush(b);
     painter->setPen(p);
     QPointF outer, inner;
     getHandCoords(inner, outer);
-    painter->drawLine(chParent->clockCenter, inner);
-    painter->drawLine(chParent->clockCenter, outer);
+    painter->drawLine(outer, inner);
+    //painter->drawLine(chParent->clockCenter, outer);
 }
