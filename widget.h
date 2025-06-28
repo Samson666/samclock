@@ -2,7 +2,6 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QtOpenGLWidgets/QOpenGLWidget>
 #include <qpainter.h>
 #include <qpen.h>
 #include <QtEvents>

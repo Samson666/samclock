@@ -3,6 +3,7 @@
 #include "clockhand.h"
 #include "widget.h"
 #include <QGradient>
+#include <QtMath>
 
 ClockHand::ClockHand(Widget *parent, const handType type)
 {
@@ -24,7 +25,7 @@ void ClockHand::getHandCoords(QPointF &destPoint_1, QPointF &destPoint_2)
         radius = 10;
         break;
     case min:
-        handAngle = qDegreesToRadians((time.minute() * 6)-90);
+        handAngle = qDegreesToRadians((time.minute() * 6.0)-90.0);
         radius = 30;
         break;
     case hr:
@@ -56,5 +57,4 @@ void ClockHand::draw(QPainter *painter)
     QPointF outer, inner;
     getHandCoords(inner, outer);
     painter->drawLine(outer, inner);
-    //painter->drawLine(chParent->clockCenter, outer);
 }

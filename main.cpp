@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
 {
     QSettings settings("JJSoft","SamClock");
     QApplication a(argc, argv);
+
+
     Widget w;
     //Get Conf
     w.move(settings.value("pos", QPoint(100,100)).value<QPoint>());

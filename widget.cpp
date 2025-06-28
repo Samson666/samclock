@@ -8,7 +8,6 @@
 #include "widget.h"
 #include "clockhand.h"
 #include "dialog.h"
-#include <QtOpenGLWidgets/QOpenGLWidget>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -18,6 +17,7 @@ Widget::Widget(QWidget *parent)
     setWindowTitle("SamClock");
     setFixedSize(this->size());
     setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_AlwaysStackOnTop);
     hasSecHand = true;
     secHand = ClockHand(this, ClockHand::sec);
     minHand = ClockHand(this, ClockHand::min);
@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
     connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowContextMenu(const QPoint&)));
 
     //Remove window Frame
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool);
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     //setAttribute(Qt::WA_DeleteOnClose);
     using namespace std::chrono_literals;
     startTimer(200ms);
